@@ -7,5 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="chrom_api_stub.js" level="project" />
+    <orderEntry type="library" name="chrome_extensions.js" level="project" />
   </component>
 </module>

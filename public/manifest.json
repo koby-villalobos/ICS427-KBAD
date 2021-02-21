@@ -1,10 +1,12 @@
 {
   "short_name": "K-BAD",
   "name": "K-BAD",
+  "description": "Password Manager",
   "icons": {
-    "16": "favicon.ico",
-    "48": "logo192.png",
-    "128": "logo512.png"
+    "16": "./lock-16.png",
+    "32": "./lock-32.png",
+    "48": "./lock-48.png",
+    "128": "./lock-128.png"
   },
   "permissions": [],
   "manifest_version": 2,
