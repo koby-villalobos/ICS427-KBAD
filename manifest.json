@@ -10,7 +10,12 @@
         "128": "./lock-128.png"
     },
     "background": {
-        "scripts": ["./background.js"]
+        "scripts": [
+          "./firebase/firebase-app.js",
+          "./firebase/firebase-auth.js",
+          "./firebase/firebase-firestore.js",
+          "./background.js"
+        ]
     },
     "options_page": "./options.html",
     "browser_action": {
