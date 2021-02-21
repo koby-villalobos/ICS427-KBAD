@@ -1,9 +1,12 @@
 // TODO(DEVELOPER): Change the values below using values from the initialization snippet: Firebase Console > Overview > Add Firebase to your web app.
 // Initialize Firebase
 var config = {
-    apiKey: 'AIzaSyAWOO1JIk36pSonbD_M4vPZngmVrM7N5L0',
-    databaseURL: 'https://ics427-kbad-d5aca.firebaseio.com',
-    storageBucket: 'ics427-kbad-d5aca.appspot.com'
+  apiKey: "AIzaSyAWOO1JIk36pSonbD_M4vPZngmVrM7N5L0",
+  authDomain: "ics427-kbad-d5aca.firebaseapp.com",
+  projectId: "ics427-kbad-d5aca",
+  storageBucket: "ics427-kbad-d5aca.appspot.com",
+  messagingSenderId: "754427388390",
+  appId: "1:754427388390:web:67b5680e4d2d7c8e52b627"
 };
 firebase.initializeApp(config);
 
