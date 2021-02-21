@@ -33,7 +33,5 @@
             "https://www.googleapis.com/auth/userinfo.email",
             "https://www.googleapis.com/auth/userinfo.profile"
         ]
-    },
-    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAytTOkJuUbiXCr1qylymkzie175kBLJCpIK/u36P0zEPlpinQ8L3YxPMkgQ9F10Rola5BPtJTk4yLHY1OfcQfaDjTcFBeaRyh6gSZh9ZkPEewehEHZAISyD5yuue/BCkDu6su5O9QNXu4bw59jwQkkeV6nbQN0QRi5dUoqK9Rhu5w21YWkey3OkBoU+XlyOEMGrnZwMn2l6LwoKyewxMjw+lPDVzYut/1y/ZWKLMwehsOg1J6CoN2dvGfZibbkE+1mxEHxIzdAJ7OCu++OTJIQc0IjZIJieoR0vi1lcFizrT9IVb1TWnDCDQgmufrbFlpKujTBqcRhtW/Ib7jHnxklQIDAQAB"
-
+    }
 }
