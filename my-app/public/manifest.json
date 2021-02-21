@@ -1,24 +1,16 @@
 {
-    "name": "KBAD",
-    "description": "Password Manager",
-    "version": "0.1.0",
-    "manifest_version": 2,
-    "icons": {
-        "16": "./lock-16.png",
-        "32": "./lock-32.png",
-        "48": "./lock-48.png",
-        "128": "./lock-128.png"
-    },
-    "background": {
-        "scripts": ["./background.js"]
-    },
-    "options_page": "./options.html",
-    "browser_action": {
-        "default_popup": "./popup.html"
-    },
-    "permissions": [
-        "tabs",
-        "https://www.google.com/*"
-    ]
-
+  "short_name": "Your Extension Name",
+  "name": "Your Extension Name",
+  "icons": {
+    "16": "favicon.ico",
+    "48": "logo192.png",
+   "128": "logo512.png"
+  },
+  "permissions": [],
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Your Extension Name"
+  }
 }
