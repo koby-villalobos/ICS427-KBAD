@@ -14,5 +14,13 @@
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "Your Extension Name"
-  }
+  },
+  "oauth2": {
+    "client_id": "959293160842-6arq9il9ta6mchoog1a2632o34pg3i0g.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo7OQ9ZFuFgcjIsBhS7EL\nsqDsFDZjanTFa6pL9FbeYZX9sc1Lhi1fw4f4St7B2owXhwKQcgHMDJbq5kETuzez\nGMfqS6UHatCf+vIcKNyWYb8AVWkxCw/DGzsK+gDRJxYw4V/LpZwQqbSTULgE+T4d\nq8uwkQvojsQX7zVcGzW6cvgfWfQF18RxhZMMCKLP1392oWP88kAufaQVKROVMKFB\n3vijOcNAhCEErIqb22dqJhdwxf9TYR7rJtCHGJIgzQAffPGJ5Q2cpOpPnlx6aWMP\nJGa4ISwUhr8O+dtDuowkzRJmarY5OD57oVL8ieiGpKCdQSqPc28tZCMt7X/WF2oI\n7wIDAQAB"
 }
