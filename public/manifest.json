@@ -1,20 +1,32 @@
 {
-  "short_name": "K-BAD",
-  "name": "K-BAD",
+  "name": "KBAD",
   "description": "Password Manager",
+  "version": "0.1.0",
+  "manifest_version": 2,
   "icons": {
     "16": "./lock-16.png",
     "32": "./lock-32.png",
     "48": "./lock-48.png",
     "128": "./lock-128.png"
   },
-  "permissions": [],
-  "manifest_version": 2,
-  "version": "0.0.1",
-  "browser_action": {
-    "default_popup": "index.html",
-    "default_title": "Your Extension Name"
+  "background": {
+    "scripts": [
+      "./firebase-app.js",
+      "./firebase-auth.js",
+      "./firebase-firestore.js",
+      "./background.js"
+    ]
   },
+  "options_page": "./options.html",
+  "browser_action": {
+    "default_popup": "./credentials.html"
+  },
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/firebasejs/8.2.8/firebase-app.js https://www.gstatic.com/firebasejs/8.2.8/firebase-auth.js https://unpkg.com https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+  "permissions": [
+    "tabs",
+    "https://www.google.com/*",
+    "identity"
+  ],
   "oauth2": {
     "client_id": "959293160842-6arq9il9ta6mchoog1a2632o34pg3i0g.apps.googleusercontent.com",
     "scopes": [
