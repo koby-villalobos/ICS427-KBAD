@@ -1,5 +1,7 @@
 import React from 'react';
 
+// followed tutorial at https://www.pluralsight.com/guides/creating-dynamic-editable-tables-with-reactjs
+
 export default class InsertableList extends React.Component {
   constructor(props) {
     super(props);
