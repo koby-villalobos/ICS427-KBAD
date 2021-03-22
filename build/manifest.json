@@ -19,7 +19,7 @@
   },
   "options_page": "./options.html",
   "browser_action": {
-    "default_popup": "index.html"
+    "default_popup": "../src/App.js"
   },
   "content_security_policy": "script-src 'self' https://apis.google.com/js/api.js https://www.gstatic.com/firebasejs/8.2.8/firebase-app.js https://www.gstatic.com/firebasejs/8.2.8/firebase-auth.js https://unpkg.com https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
   "permissions": [
