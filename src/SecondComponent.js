@@ -1,4 +1,5 @@
 import React from 'react';
+/* global chrome */
 
 // followed tutorial at https://www.pluralsight.com/guides/creating-dynamic-editable-tables-with-reactjs
 
@@ -22,6 +23,25 @@ export default class InsertableList extends React.Component {
     var items = this.state.items;
 
     items.push(this.state.message);
+
+    // chrome.storage.sync.set({key: this.state.message}, function() {
+    //   console.log('Value is set to ' + this.state.message);
+    // });
+    //
+    // chrome.storage.sync.get(['key'], function(result) {
+    //   console.log('Value currently is ' + result.key);
+    // });
+
+    var value = this.state.message;
+
+
+    chrome.storage.local.set({ key: value }, function(){
+      //  Data's been saved boys and girls, go on home
+    });
+
+    // chrome.storage.local.get(['key'], function(result) {
+    //   console.log('Value currently is ' + result.key);
+    // });
 
     this.setState({
       items: items,
@@ -50,6 +70,11 @@ export default class InsertableList extends React.Component {
 
   renderRows() {
     var context = this;
+
+
+    chrome.storage.local.get(['key'], function(result) {
+      console.log('Value currently is ' + result.key);
+    });
 
     return  this.state.items.map(function(o, i) {
       return (

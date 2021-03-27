@@ -8,7 +8,9 @@
     "48": "./lock-48.png",
     "128": "./lock-128.png"
   },
-  "permissions": [],
+  "permissions": [
+    "storage"
+  ],
   "manifest_version": 2,
   "version": "0.0.1",
   "browser_action": {
