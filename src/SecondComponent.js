@@ -34,10 +34,10 @@ export default class InsertableList extends React.Component {
 
     var value = this.state.message;
 
-
-    chrome.storage.local.set({ key: value }, function(){
-      //  Data's been saved boys and girls, go on home
-    });
+    //
+    // chrome.storage.local.set({ key: value }, function(){
+    //   //  Data's been saved boys and girls, go on home
+    // });
 
     // chrome.storage.local.get(['key'], function(result) {
     //   console.log('Value currently is ' + result.key);
@@ -72,9 +72,9 @@ export default class InsertableList extends React.Component {
     var context = this;
 
 
-    chrome.storage.local.get(['key'], function(result) {
-      console.log('Value currently is ' + result.key);
-    });
+    // chrome.storage.local.get(['key'], function(result) {
+    //   console.log('Value currently is ' + result.key);
+    // });
 
     return  this.state.items.map(function(o, i) {
       return (
