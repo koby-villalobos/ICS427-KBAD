@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Credentials from './credentials';
+import FirstComponent from './FirstComponent';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <FirstComponent></FirstComponent>
 
         <Credentials></Credentials>
 
