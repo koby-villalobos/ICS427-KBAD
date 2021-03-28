@@ -7,6 +7,8 @@ import {
   IfFirebaseAuthed,
   IfFirebaseAuthedAnd
 } from "@react-firebase/auth";
+import FirstComponent from './FirstComponent';
+import SecondComponent from './SecondComponent';
 
 let config;
 
@@ -37,14 +39,6 @@ export default class Credentials extends Component {
             >
               Sign In with Google
             </button>
-            {/*<button*/}
-            {/*    data-testid="signin-anon"*/}
-            {/*    onClick={() => {*/}
-            {/*      firebase.auth().signInAnonymously();*/}
-            {/*    }}*/}
-            {/*>*/}
-            {/*  Sign In Anonymously*/}
-            {/*</button>*/}
             <button
                 onClick={() => {
                   firebase.auth().signOut();
@@ -53,18 +47,18 @@ export default class Credentials extends Component {
               Sign Out
             </button>
             <FirebaseAuthConsumer>
-              {({ isSignedIn, user, providerId }) => {
-                return (
-                    <pre style={{ height: 300, overflow: "auto" }}>
-                {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}
-              </pre>
-                );
-              }}
+              {/*{({ isSignedIn, user, providerId }) => {*/}
+              {/*  return (*/}
+              {/*      <pre style={{ height: 300, overflow: "auto" }}>*/}
+              {/*  {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}*/}
+              {/*</pre>*/}
+              {/*  );*/}
+              {/*}}*/}
             </FirebaseAuthConsumer>
             <div>
               <IfFirebaseAuthed>
                 {() => {
-                  return <div>You are authenticated</div>;
+                  return (<div className="SecondComponent"><SecondComponent/></div>);
                 }}
               </IfFirebaseAuthed>
               <IfFirebaseAuthedAnd
