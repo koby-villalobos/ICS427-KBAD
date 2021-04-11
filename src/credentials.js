@@ -31,6 +31,7 @@ export default class Credentials extends Component {
     return (
         <FirebaseAuthProvider {...config} firebase={firebase} >
           <div>
+            {/*<IfFirebaseUnAuthed>*/}
             <button
                 onClick={() => {
                   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
@@ -39,6 +40,7 @@ export default class Credentials extends Component {
             >
               Sign In with Google
             </button>
+            {/*<FirebaseUnAuthed/>*/}
             <button
                 onClick={() => {
                   firebase.auth().signOut();
@@ -46,6 +48,7 @@ export default class Credentials extends Component {
             >
               Sign Out
             </button>
+            {/*<p>Find your passwords below</p>*/}
             <FirebaseAuthConsumer>
               {/*{({ isSignedIn, user, providerId }) => {*/}
               {/*  return (*/}

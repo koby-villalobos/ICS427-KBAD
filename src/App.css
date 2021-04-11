@@ -1,9 +1,11 @@
 .App {
   text-align: center;
+  height: 400px;
+  width: 700px;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 60vmin;
   pointer-events: none;
 }
 
@@ -25,6 +27,8 @@
 }
 
 .App-link {
+  margin-top: 50px;
+  margin-bottom: 5px;
   color: #61dafb;
 }
 
@@ -35,4 +39,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+#developers {
+  margin-bottom: 20px
 }
