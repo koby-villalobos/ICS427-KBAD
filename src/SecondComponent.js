@@ -1,5 +1,24 @@
-import React from 'react';
-/* global chrome */
+import React, {Component} from 'react';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import "firebase/auth";
+import {
+  FirestoreProvider,
+  FirestoreCollection
+} from "@react-firebase/firestore";
+
+
+let config;
+
+config = {
+  apiKey: "AIzaSyAWOO1JIk36pSonbD_M4vPZngmVrM7N5L0",
+  authDomain: "ics427-kbad-d5aca.firebaseapp.com",
+  projectId: "ics427-kbad-d5aca",
+  storageBucket: "ics427-kbad-d5aca.appspot.com",
+  messagingSenderId: "754427388390",
+  appId: "1:754427388390:web:67b5680e4d2d7c8e52b627"
+};
+
 
 // followed tutorial at https://www.pluralsight.com/guides/creating-dynamic-editable-tables-with-reactjs
 
@@ -128,6 +147,8 @@ export default class InsertableList extends React.Component {
           >
             Add Password
           </button>
+
+
         </div>
     );
   }
