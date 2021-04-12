@@ -1,4 +1,5 @@
 import React from 'react';
+import {Input, Button} from 'semantic-ui-react';
 /* global chrome */
 
 // followed tutorial at https://www.pluralsight.com/guides/creating-dynamic-editable-tables-with-reactjs
@@ -20,7 +21,7 @@ export default class InsertableList extends React.Component {
   }
 
   handleClick() {
-    var items = this.state.items;
+    const items = this.state.items;
 
     items.push(this.state.message);
 
@@ -32,7 +33,7 @@ export default class InsertableList extends React.Component {
     //   console.log('Value currently is ' + result.key);
     // });
 
-    var value = this.state.message;
+    const value = this.state.message;
 
     //
     // chrome.storage.local.set({ key: value }, function(){
@@ -50,7 +51,7 @@ export default class InsertableList extends React.Component {
   }
 
   handleItemChanged(i, event) {
-    var items = this.state.items;
+    const items = this.state.items;
     items[i]  = event.target.value;
 
     this.setState({
@@ -59,7 +60,7 @@ export default class InsertableList extends React.Component {
   }
 
   handleItemDeleted(i) {
-    var items = this.state.items;
+    const items = this.state.items;
 
     items.splice(i, 1);
 
@@ -69,7 +70,7 @@ export default class InsertableList extends React.Component {
   }
 
   renderRows() {
-    var context = this;
+    const context = this;
 
 
     // chrome.storage.local.get(['key'], function(result) {
@@ -80,7 +81,7 @@ export default class InsertableList extends React.Component {
       return (
           <tr key={"item-" + i}>
             <td>
-              <input
+              <Input
                   type="text"
                   value={o}
                   onChange={context.handleItemChanged.bind(context, i)}
@@ -117,17 +118,18 @@ export default class InsertableList extends React.Component {
             </tbody>
           </table>
           <hr/>
-          <input
+          <Input
               type="text"
               placeholder="ex: Pa55W0rD"
               value={this.state.message}
               onChange={this.updateMessage.bind(this)}
           />
-          <button
+          <Button basic color={'yellow'}
               onClick={this.handleClick.bind(this)}
           >
             Add Password
-          </button>
+          </Button>
+
         </div>
     );
   }

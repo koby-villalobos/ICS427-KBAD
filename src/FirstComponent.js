@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Header, Icon, Image} from "semantic-ui-react";
 
 export default class FirstComponent extends Component {
 
@@ -7,9 +8,16 @@ export default class FirstComponent extends Component {
   }
 
   render() {
-    return (<div className="comptext">
-      <h3>Welcome to KBAD</h3>
-      {this.props.displaytext}
+    return (
+        <div className="comptext">
+      <Header as='h3' icon textAlign='center'>
+        <Header.Content>Welcome To KBAD</Header.Content>
+      </Header>
+      <Image
+          centered
+          size='large'
+          src='/public/lock-128.png'
+      />
     </div>)
   }
 }
