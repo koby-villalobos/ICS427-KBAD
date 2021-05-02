@@ -28,6 +28,7 @@ export default class InsertableList extends React.Component {
 
     this.state = {
       message: "",
+      message2: "",
       items: []
     }
   }
@@ -38,33 +39,35 @@ export default class InsertableList extends React.Component {
     });
   }
 
+  updateMessage2(event) {
+    this.setState({
+      message2: event.target.value
+    });
+  }
+
+  sendData (password, website) {
+      firebase.database().ref('/passwords/user/' + this.props.user.uid + website).set({
+        pass: password,
+      }).then(
+          console.log("datat sent to firebase")
+      )
+
+  }
+
   handleClick() {
     var items = this.state.items;
+    let newMessage = this.state.message + this.state.message2;
 
-    items.push(this.state.message);
+    items.push(newMessage);
 
-    // chrome.storage.sync.set({key: this.state.message}, function() {
-    //   console.log('Value is set to ' + this.state.message);
-    // });
-    //
-    // chrome.storage.sync.get(['key'], function(result) {
-    //   console.log('Value currently is ' + result.key);
-    // });
 
-    var value = this.state.message;
+    this.sendData(this.state.message, this.state.message2);
 
-    //
-    // chrome.storage.local.set({ key: value }, function(){
-    //   //  Data's been saved boys and girls, go on home
-    // });
-
-    // chrome.storage.local.get(['key'], function(result) {
-    //   console.log('Value currently is ' + result.key);
-    // });
 
     this.setState({
       items: items,
-      message: ""
+      message: "",
+      message2: ""
     });
   }
 
@@ -138,7 +141,13 @@ export default class InsertableList extends React.Component {
           <hr/>
           <input
               type="text"
-              placeholder="ex: Pa55W0rD"
+              placeholder="Website URL"
+              value={this.state.message2}
+              onChange={this.updateMessage2.bind(this)}
+          />
+          <input
+              type="text"
+              placeholder="Password"
               value={this.state.message}
               onChange={this.updateMessage.bind(this)}
           />

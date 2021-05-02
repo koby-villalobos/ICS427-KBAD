@@ -27,16 +27,15 @@ config = {
 firebase.initializeApp(config);
 
 
-const sendData = () => {
+const sendData = (user) => {
   return (
-
               <div>
                 <button
                     onClick={async () => {
-                    firebase.database().ref('/passwords/').set({
-                      user: "kobyy",
+                    firebase.database().ref('/passwords/user/' + user.uid).set({
+                      pass: "notmypassword",
                     }).then(
-                        console.log("worked")
+                        console.log("datat sent to firebase")
                     )
                     }}
                 >
@@ -72,20 +71,29 @@ const UnAuthedPage = () => {
             </button>
           </IfFirebaseAuthed>
 
-          <FirebaseAuthConsumer>
-            {/*{({ isSignedIn, user, providerId }) => {*/}
-            {/*  return (*/}
-            {/*      <pre style={{ height: 300, overflow: "auto" }}>*/}
-            {/*  {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}*/}
-            {/*</pre>*/}
-            {/*  );*/}
-            {/*}}*/}
-          </FirebaseAuthConsumer>
+          {/*<FirebaseAuthConsumer>*/}
+          {/*  {({ isSignedIn, user, providerId }) => {*/}
+          {/*    return (*/}
+          {/*        <pre style={{ height: 300, overflow: "auto" }}>*/}
+          {/*    {JSON.stringify({ user }, null, 2)}*/}
+          {/*  </pre>*/}
+          {/*    );*/}
+          {/*  }}*/}
+          {/*</FirebaseAuthConsumer>*/}
           <div>
             <IfFirebaseAuthed>
-              {() => {
-                return (<div className="SecondComponent" firebase={firebase}><SecondComponent/></div>);
-              }}
+              <FirebaseAuthConsumer>
+                {({ isSignedIn, user, providerId }) => {
+                  if(user !== null) {
+                    return (
+                        // <div className="SecondComponent" firebase={firebase} user={user}><SecondComponent/></div>
+                        <SecondComponent firebase={firebase} user={user}> </SecondComponent>
+
+                    );
+                  }
+                }}
+
+              </FirebaseAuthConsumer>
             </IfFirebaseAuthed>
             <IfFirebaseAuthedAnd
                 filter={({ providerId }) => providerId !== "anonymous"}
@@ -95,9 +103,19 @@ const UnAuthedPage = () => {
               }}
             </IfFirebaseAuthedAnd>
 
-
             <IfFirebaseAuthed>
-              {sendData()}
+            <FirebaseAuthConsumer>
+              {({ isSignedIn, user, providerId }) => {
+                if(user !== null) {
+
+                return (
+                    <pre >
+              {sendData(user)}
+              </pre>
+                );
+                }
+              }}
+            </FirebaseAuthConsumer>
             </IfFirebaseAuthed>
           </div>
         </div>
