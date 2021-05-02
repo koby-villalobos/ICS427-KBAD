@@ -46,7 +46,7 @@ export default class InsertableList extends React.Component {
   }
 
   sendData (password, website) {
-      firebase.database().ref('/passwords/user/' + this.props.user.uid + website).set({
+      firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + website).set({
         pass: password,
       }).then(
           console.log("datat sent to firebase")
