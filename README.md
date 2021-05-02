@@ -1,5 +1,3 @@
-https://github.com/koby-villalobos/ICS427-KBAD
-
 (Start - 02/21/2021)
 Complete
 Chrome extension template using React
@@ -21,10 +19,6 @@ Adrian and Koby will continue to refine the pages associated with our app using 
 Every team member will familiarize themselves with the current best security practices for application development and be sure that the code that is being written is safe and secure.
 
 (02/21/2021 - 03/21/2021)
-
-https://github.com/koby-villalobos/ICS427-KBAD
-*Our work for this assignment is in the Koby-test branch*
-
 Progress
 Able to link the Firebase database to a react version of our application, and was able to get the Google OAuth working within the React app and able to add user passwords, and have it show up visually on the app interface.
 
@@ -47,9 +41,6 @@ Adrian and Davin will work on figuring out how to make our extension autofill pa
 
 (03/21/2021 - 04/11/2021)
 
-https://github.com/koby-villalobos/ICS427-KBAD
- *All changes are in the Koby-Test branch*
-
 We were able to get the Chrome extension version of our app running with the Google OAuth login. Creating a Chrome extension proved to be very difficult for us. We were also able to create userIDs associated with the Firebase database from the Chrome extension.
 
 For the final assignment, we are going to touch up the extension with Semantic UI to make it more presentable. We will also be attaching each user's passwords to their userID and having a secure datastore for each user. We will also be fixing up security issues by adding more rules to our application in the Firebase console.
@@ -62,9 +53,6 @@ Braden and Adrian worked on the front end of the app using React and Semantic UI
 
 
 (04/11/2021 - 5/2/21)
-
-https://github.com/koby-villalobos/ICS427-KBAD
-
 
 Koby is working on the final component for our application, which is to ensure that the passwords are being saved with each user ID.
 
