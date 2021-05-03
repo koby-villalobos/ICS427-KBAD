@@ -84,11 +84,25 @@ export default class InsertableList extends React.Component {
   }
 
   sendData (password, website) {
-      firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + website).set({
+    //Used for Firebase pathing
+    let webPath = website.replaceAll(".", "");
+    webPath = webPath.replaceAll("#", "");
+    webPath = webPath.replaceAll("$", "");
+    webPath = webPath.replaceAll("[", "");
+    webPath = webPath.replaceAll("]", "");
+    webPath = webPath.replaceAll("/", "");
+    webPath = webPath.replaceAll(":", "");
+    webPath = webPath.replaceAll("\\", "");
+    console.log(webPath);
+
+
+
+
+    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + webPath).set({
         pass: password,
         website: website,
       }).then(
-          console.log("datat sent to firebase")
+          console.log("data sent to firebase")
       )
 
   }
@@ -120,16 +134,16 @@ export default class InsertableList extends React.Component {
     let currPass = items[i].password;
     items[i]  = event.target.value;
 
-    console.log("new Website name: " + items);
-
-    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + websiteName).set({
+    let webPath = websiteName.replace(".", "");
+    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + webPath).set({
       pass: null,
       website: null,
     }).then(
         console.log("website updated")
     )
 
-    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + items[0]).set({
+    webPath = items[0].replace(".", "");
+    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + webPath).set({
       pass: currPass,
       website: items[0],
     }).then(
@@ -146,8 +160,6 @@ export default class InsertableList extends React.Component {
     var items = this.state.items;
     let websiteName = items[i].website;
     items[i]  = event.target.value;
-    let newPass = items;
-    console.log("new Website name: " + newPass);
 
     firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + websiteName).set({
       pass: items[0],
@@ -165,8 +177,17 @@ export default class InsertableList extends React.Component {
     var items = this.state.items;
     let item = items[i];
 
+    let webPath = item.website.replace(".", "");
+    webPath = webPath.replaceAll("#", "");
+    webPath = webPath.replaceAll("$", "");
+    webPath = webPath.replaceAll("[", "");
+    webPath = webPath.replaceAll("]", "");
+    webPath = webPath.replaceAll("/", "");
+    webPath = webPath.replaceAll("\\", "");
+    webPath = webPath.replaceAll(":", "");
 
-    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + item.website).set({
+
+    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + webPath).set({
       pass: null,
       website: null,
     }).then(
@@ -192,17 +213,25 @@ export default class InsertableList extends React.Component {
       return (
           <tr key={"item-" + i}>
             <td>
-              <input
-                  type="text"
-                  value={o.website}
-                  onChange={context.handleItemChanged.bind(context, i)}
-              />
-              <input
-                  type="text"
-                  value={o.password}
-                  onChange={context.handleItemChanged2.bind(context, i)}
-              />
+              <text
+                  style={{ paddingRight: 10 }}
+                  // type="text"
+                  // value={o.website}
+                  // onChange={context.handleItemChanged.bind(context, i)}
+              >
+                {o.website}
+              </text>
             </td>
+          <td>
+            <text
+                style={{ paddingRight: 10 }}
+                // type="text"
+                // value={o.password}
+                // onChange={context.handleItemChanged2.bind(context, i)}
+            >
+              {o.password}
+            </text>
+          </td>
             <td>
               <button
                   onClick={context.handleItemDeleted.bind(context, i)}
@@ -221,10 +250,13 @@ export default class InsertableList extends React.Component {
           <table className="">
             <thead>
             <tr>
-              <th>
-                Your Password(s)
+              <th style={{ paddingRight: 10 }} >
+                Websites
               </th>
-              <th>
+              <th style={{ paddingRight: 10 }} >
+                Passwords
+              </th>
+              <th style={{ paddingRight: 10 }} >
                 Actions
               </th>
             </tr>

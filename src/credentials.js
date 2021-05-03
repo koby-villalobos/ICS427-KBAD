@@ -61,15 +61,7 @@ const UnAuthedPage = () => {
             </button>
           </IfFirebaseUnAuthed>
 
-          <IfFirebaseAuthed>
-            <button
-                onClick={() => {
-                  firebase.auth().signOut();
-                }}
-            >
-              Sign Out
-            </button>
-          </IfFirebaseAuthed>
+
 
           {/*<FirebaseAuthConsumer>*/}
           {/*  {({ isSignedIn, user, providerId }) => {*/}
@@ -95,27 +87,22 @@ const UnAuthedPage = () => {
 
               </FirebaseAuthConsumer>
             </IfFirebaseAuthed>
-            <IfFirebaseAuthedAnd
-                filter={({ providerId }) => providerId !== "anonymous"}
-            >
-              {({ providerId }) => {
-                return <div>You are authenticated with {providerId}</div>;
-              }}
-            </IfFirebaseAuthedAnd>
+            {/*<IfFirebaseAuthedAnd*/}
+            {/*    filter={({ providerId }) => providerId !== "anonymous"}*/}
+            {/*>*/}
+            {/*  {({ providerId }) => {*/}
+            {/*    return <div>You are authenticated with {providerId}</div>;*/}
+            {/*  }}*/}
+            {/*</IfFirebaseAuthedAnd>*/}
 
             <IfFirebaseAuthed>
-            <FirebaseAuthConsumer>
-              {({ isSignedIn, user, providerId }) => {
-                if(user !== null) {
-
-                return (
-                    <pre >
-              {sendData(user)}
-              </pre>
-                );
-                }
-              }}
-            </FirebaseAuthConsumer>
+              <button
+                  onClick={() => {
+                    firebase.auth().signOut();
+                  }}
+              >
+                Sign Out
+              </button>
             </IfFirebaseAuthed>
           </div>
         </div>
