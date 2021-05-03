@@ -70,6 +70,6 @@ Installation and Usage instructions
 
 4. Once enabled look for the "Load unpacked" and click 
 
-5. Find the downloaded release in your file explorer and load it in
+5. Find the downloaded release in your file explorer and load in the build folder
 
 One major challenge we came across was getting the application to run as a chrome extension. For the majority of the semester, we were struggling to add the correct import and Content Security Policy scripts to get our application running as an extension rather than a native web app. Once we figured it out, the last thing we needed to do was to get each user's passwords associated with their account. We are very proud that we got our app running as a chrome extension, as this proved to be our biggest hurdle throughout the semester.
