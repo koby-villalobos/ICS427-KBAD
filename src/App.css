@@ -6,7 +6,7 @@
   height: 15vmin;
   width: 30px;
   pointer-events: none;
-  padding-top: 15px;
+  margin-top: 15px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

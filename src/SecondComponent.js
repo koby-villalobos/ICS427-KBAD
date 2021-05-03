@@ -105,23 +105,25 @@ export default class InsertableList extends React.Component {
   }
 
   handleClick() {
-    var items = this.state.items;
-    let newMessage = {
-      website: this.state.message2,
-      password: this.state.message,
+    if(this.state.message !== "" && this.state.message2 !== "") {
+      var items = this.state.items;
+      let newMessage = {
+        website: this.state.message2,
+        password: this.state.message,
+      }
+
+      items.push(newMessage);
+
+      this.sendData(this.state.message, this.state.message2);
+
+      this.setState({
+        items: items,
+        message: "",
+        message2: ""
+      });
+    } else {
+      alert("Please add a website and password");
     }
-
-    items.push(newMessage);
-
-
-    this.sendData(this.state.message, this.state.message2);
-
-
-    this.setState({
-      items: items,
-      message: "",
-      message2: ""
-    });
   }
 
   //for websites
