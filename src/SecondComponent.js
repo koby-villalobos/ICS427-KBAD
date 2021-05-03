@@ -7,6 +7,7 @@ import {
   FirestoreCollection
 } from "@react-firebase/firestore";
 
+let _ = require('lodash');
 
 let config;
 
@@ -33,6 +34,43 @@ export default class InsertableList extends React.Component {
     }
   }
 
+
+  objectReformat(inputObject) {
+    let items = this.state.items;
+    const arrayOfPass = [];
+    let objectOfPass = {};
+    const keys = Object.keys(inputObject);
+    for (let i = 0; i < keys.length; i += 1) {
+      const key = keys[i];
+      objectOfPass = {
+        website: inputObject[key].website,
+        password: inputObject[key].pass,
+      };
+      items.push(objectOfPass);
+      arrayOfPass.push(objectOfPass);
+    }
+    this.setState({
+      items: items,
+      message: "",
+      message2: ""
+    });
+    return arrayOfPass;
+  }
+
+  componentDidMount() {
+    let database = firebase.database()
+    let dataref = database.ref('/passwords/user/' + this.props.user.uid);
+
+    dataref.once('value').then((snapshot) => {
+      const userData = snapshot.val();
+      console.log('user data: ' + JSON.stringify(userData));
+      if(userData !== null ) {
+        let arrayOfPass = this.objectReformat(userData);
+      }
+
+    });
+  }
+
   updateMessage(event) {
     this.setState({
       message: event.target.value
@@ -48,6 +86,7 @@ export default class InsertableList extends React.Component {
   sendData (password, website) {
       firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + website).set({
         pass: password,
+        website: website,
       }).then(
           console.log("datat sent to firebase")
       )
@@ -74,9 +113,48 @@ export default class InsertableList extends React.Component {
     });
   }
 
+  //for websites
   handleItemChanged(i, event) {
     var items = this.state.items;
+    let websiteName = items[i].website;
+    let currPass = items[i].password;
     items[i]  = event.target.value;
+
+    console.log("new Website name: " + items);
+
+    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + websiteName).set({
+      pass: null,
+      website: null,
+    }).then(
+        console.log("website updated")
+    )
+
+    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + items[0]).set({
+      pass: currPass,
+      website: items[0],
+    }).then(
+        console.log("website updated")
+    )
+
+    this.setState({
+      items: items
+    });
+  }
+
+  //for passwords
+  handleItemChanged2(i, event) {
+    var items = this.state.items;
+    let websiteName = items[i].website;
+    items[i]  = event.target.value;
+    let newPass = items;
+    console.log("new Website name: " + newPass);
+
+    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + websiteName).set({
+      pass: items[0],
+      website: websiteName,
+    }).then(
+        console.log("password updated")
+    )
 
     this.setState({
       items: items
@@ -85,6 +163,15 @@ export default class InsertableList extends React.Component {
 
   handleItemDeleted(i) {
     var items = this.state.items;
+    let item = items[i];
+
+
+    firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + item.website).set({
+      pass: null,
+      website: null,
+    }).then(
+        console.log("data removed from firebase")
+    )
 
     items.splice(i, 1);
 
@@ -113,7 +200,7 @@ export default class InsertableList extends React.Component {
               <input
                   type="text"
                   value={o.password}
-                  onChange={context.handleItemChanged.bind(context, i)}
+                  onChange={context.handleItemChanged2.bind(context, i)}
               />
             </td>
             <td>
