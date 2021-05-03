@@ -30,11 +30,11 @@ We will also work as a team to visually refine the homepage, where the user can 
 
 Members
 Koby - 
-Completed setting up a react version of our app that is able to use Google OAuth
+Completed setting up a react version of our app that can use Google OAuth
 
-Braden, Adrian, and Davin worked to help debug the code that Koby set up. Collectively as a group, we were able to get pretty close to the getting the Google OAuth working within the Chrome extension.
+Braden, Adrian, and Davin worked to help debug the code that Koby set up. Collectively as a group, we were able to get pretty close to getting the Google OAuth working within the Chrome extension.
 
-Braden and Koby will work on storing the passwords within the Firebase database, once the chrome extension login is able to work.
+Braden and Koby will work on storing the passwords within the Firebase database, once the chrome extension login can work.
 
 Adrian and Davin will work on figuring out how to make our extension autofill passwords based on the site that the user is using.
 
@@ -78,4 +78,4 @@ Installation and Usage instructions
 
 8. Once you are signed in, you will be shown a simple interface to which you can enter your passwords and delete your passwords
 
-One major challenge we cam across was actually getting the application to run as a chrome extension. For the majority of the semester we were struggling to add the correct import and Content Security Policy scripts to get our application running as an extension rather than a native web app. Once we figured it out, the last thing we needed to do was to get each users passwords associated with their account. We are very proud that we got our app running as a chrome extension, as this proved to be our biggest hurdle throughout the semester.
+One major challenge we came across was getting the application to run as a chrome extension. For the majority of the semester, we were struggling to add the correct import and Content Security Policy scripts to get our application running as an extension rather than a native web app. Once we figured it out, the last thing we needed to do was to get each user's passwords associated with their account. We are very proud that we got our app running as a chrome extension, as this proved to be our biggest hurdle throughout the semester.
