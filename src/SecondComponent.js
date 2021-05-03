@@ -93,9 +93,6 @@ export default class InsertableList extends React.Component {
     webPath = webPath.replaceAll("/", "");
     webPath = webPath.replaceAll(":", "");
     webPath = webPath.replaceAll("\\", "");
-    console.log(webPath);
-
-
 
 
     firebase.database().ref('/passwords/user/' + this.props.user.uid + '/' + webPath).set({
@@ -177,7 +174,7 @@ export default class InsertableList extends React.Component {
     var items = this.state.items;
     let item = items[i];
 
-    let webPath = item.website.replace(".", "");
+    let webPath = item.website.replaceAll(".", "");
     webPath = webPath.replaceAll("#", "");
     webPath = webPath.replaceAll("$", "");
     webPath = webPath.replaceAll("[", "");
@@ -204,20 +201,12 @@ export default class InsertableList extends React.Component {
   renderRows() {
     var context = this;
 
-
-    // chrome.storage.local.get(['key'], function(result) {
-    //   console.log('Value currently is ' + result.key);
-    // });
-
     return  this.state.items.map(function(o, i) {
       return (
           <tr key={"item-" + i}>
             <td>
               <text
                   style={{ paddingRight: 10 }}
-                  // type="text"
-                  // value={o.website}
-                  // onChange={context.handleItemChanged.bind(context, i)}
               >
                 {o.website}
               </text>
@@ -225,9 +214,6 @@ export default class InsertableList extends React.Component {
           <td>
             <text
                 style={{ paddingRight: 10 }}
-                // type="text"
-                // value={o.password}
-                // onChange={context.handleItemChanged2.bind(context, i)}
             >
               {o.password}
             </text>

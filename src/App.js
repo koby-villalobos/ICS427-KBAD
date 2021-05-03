@@ -12,7 +12,7 @@ function App() {
         <FirstComponent></FirstComponent>
 
         <Credentials></Credentials>
-        
+
       </header>
     </div>
   );

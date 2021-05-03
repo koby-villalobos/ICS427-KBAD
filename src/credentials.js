@@ -27,24 +27,6 @@ config = {
 firebase.initializeApp(config);
 
 
-const sendData = (user) => {
-  return (
-              <div>
-                <button
-                    onClick={async () => {
-                    firebase.database().ref('/passwords/user/' + user.uid).set({
-                      pass: "notmypassword",
-                    }).then(
-                        console.log("datat sent to firebase")
-                    )
-                    }}
-                >
-                  Push
-                </button>
-              </div>
-  );
-}
-
 const UnAuthedPage = () => {
   return (
 
@@ -61,24 +43,12 @@ const UnAuthedPage = () => {
             </button>
           </IfFirebaseUnAuthed>
 
-
-
-          {/*<FirebaseAuthConsumer>*/}
-          {/*  {({ isSignedIn, user, providerId }) => {*/}
-          {/*    return (*/}
-          {/*        <pre style={{ height: 300, overflow: "auto" }}>*/}
-          {/*    {JSON.stringify({ user }, null, 2)}*/}
-          {/*  </pre>*/}
-          {/*    );*/}
-          {/*  }}*/}
-          {/*</FirebaseAuthConsumer>*/}
           <div>
             <IfFirebaseAuthed>
               <FirebaseAuthConsumer>
                 {({ isSignedIn, user, providerId }) => {
                   if(user !== null) {
                     return (
-                        // <div className="SecondComponent" firebase={firebase} user={user}><SecondComponent/></div>
                         <SecondComponent firebase={firebase} user={user}> </SecondComponent>
 
                     );
@@ -87,14 +57,6 @@ const UnAuthedPage = () => {
 
               </FirebaseAuthConsumer>
             </IfFirebaseAuthed>
-            {/*<IfFirebaseAuthedAnd*/}
-            {/*    filter={({ providerId }) => providerId !== "anonymous"}*/}
-            {/*>*/}
-            {/*  {({ providerId }) => {*/}
-            {/*    return <div>You are authenticated with {providerId}</div>;*/}
-            {/*  }}*/}
-            {/*</IfFirebaseAuthedAnd>*/}
-
             <IfFirebaseAuthed>
               <button
                   onClick={() => {
