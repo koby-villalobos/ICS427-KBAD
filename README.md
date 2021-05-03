@@ -72,10 +72,4 @@ Installation and Usage instructions
 
 5. Find the downloaded release in your file explorer and load it in
 
-6. Then go to your extensions in the top right-hand corner find the KBAD lock icon and click on it
-
-7. Once clicked, the application will be presented to you and once you press sign in, a Google Sign on will be presented to you, sign in as normal
-
-8. Once you are signed in, you will be shown a simple interface to which you can enter your passwords and delete your passwords
-
 One major challenge we came across was getting the application to run as a chrome extension. For the majority of the semester, we were struggling to add the correct import and Content Security Policy scripts to get our application running as an extension rather than a native web app. Once we figured it out, the last thing we needed to do was to get each user's passwords associated with their account. We are very proud that we got our app running as a chrome extension, as this proved to be our biggest hurdle throughout the semester.
